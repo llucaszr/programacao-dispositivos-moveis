@@ -4,11 +4,13 @@ import { listarTarefas, adicionarTarefa, removerTarefa, modificarTarefa } from "
 
 function exibirMenu() {
     console.log("MENU PRINCIPAL");
+    console.log("")
     console.log("1 - Adicionar tarefas");
     console.log("2 - Listar tarefas");
     console.log("3 - Remover tarefa");
     console.log("4 - Modificar tarefa");
     console.log("5 - Sair");
+    console.log("")
 }
 
 function escolherOpcao(opcao) {
