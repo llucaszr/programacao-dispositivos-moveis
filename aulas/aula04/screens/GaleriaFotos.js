@@ -1,11 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import { View,Text, StyleSheet,Image, ScrollView, TouchableOpacity } from "react-native";
 
 const imagens = [
   "https://picsum.photos/200?random=1",
