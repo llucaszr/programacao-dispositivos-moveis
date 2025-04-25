@@ -12,8 +12,11 @@ function Home({ navigation }) {
             <Text>Home</Text>
             <Button
                 title="Ir para Perfil"
-                onPress={() => navigation.navigate("Perfil",
-                    { id: 1, usuario: "Jose" })} />
+                onPress={() =>
+                    navigation.navigate("Perfil",
+                        { id: 1, usuario: "Jose" })
+                }
+            />
         </View>
     );
 }
