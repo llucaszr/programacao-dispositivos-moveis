@@ -1,5 +1,5 @@
 import { View, ScrollView, StyleSheet } from "react-native";
-import { Appbar, Text, List, TextInput, IconButton, FAB } from "react-native-paper";
+import { Appbar, Text, List} from "react-native-paper";
 
 
 const conversas = [
@@ -28,11 +28,7 @@ const conversas = [
 function ChatScreen({ navigation }) {
     return (
         <View style={style.container}>
-            <Appbar.Header>
-                <Appbar.Content title="Conversas" />
-                <Appbar.Action icon="dots-vertical" onPress={() => { }} />
-            </Appbar.Header>
-            <ScrollView>
+            <ScrollView style={style.chats}>
                 {conversas.map((conversas) => (
                     <List.Item
                         key={conversas.id}
@@ -44,12 +40,6 @@ function ChatScreen({ navigation }) {
                     />
                 ))}
             </ScrollView>
-            <View style={style.bottomBar}>
-                <IconButton icon="camera" onPress={() => { }} />
-                <TextInput mode="outlined" placeholder="Mensagem" />
-                <IconButton icon="send" onPress={() => { }} />
-            </View>
-            <FAB icon="plus" onPress={() => { }} style={style.fab} />
         </View>
     );
 }
@@ -58,18 +48,15 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
     },
-    bottomBar: {
-        flexDirection: "row",
-        justifyContent: "space-around",
-        alignItems: "center",
-        padding: 8,
-    },
     fab: {
         position: "absolute",
         margin: 16,
         right: 0,
         bottom: 60,
     },
+    chats:{
+        padding: 16
+    }
 })
 
 

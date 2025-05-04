@@ -20,9 +20,6 @@ const chamadas = [
 function CallScreen({ navigation }) {
     return (
         <View style={style.container}>
-            <Appbar.Header>
-                <Appbar.Content title="Chamadas" />
-            </Appbar.Header>
             <ScrollView style={style.calls} >
                 {chamadas.map((chamadas) => (
                     <List.Item

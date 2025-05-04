@@ -9,12 +9,19 @@ import PlaylistScreen from "./screens/PlaylistScreen";
 import FavoriteScreen from "./screens/FavoriteScreen";
 import BottomTabNavigator from "./routes/BottomTabNavigator";
 import CallScreen from "./screens/CallScreen";
+import ChatScreen from "./screens/ChatScreen"
+import ContactScreen from "./screens/ContactScreen";
+import TopTabNavigator from "./routes/TopTabNavigator";
+import HomeScreen from "./screens/HomeScreen";
+import ProfileScreen from "./screens/ProfileScreen"
+import DrawerNavigator from "./routes/DrawerNavigator";
+
 
 function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <CallScreen></CallScreen>
+        <DrawerNavigator></DrawerNavigator>
       </NavigationContainer>
     </SafeAreaProvider>
   );
