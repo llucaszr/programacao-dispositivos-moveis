@@ -1,19 +1,18 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login";
 import CriarConta from "../screens/CriarConta";
-import RecuperarSenha from "../screens/RecuperarSenha";
+import RedefinirSenha from "../screens/RecuperarSenha";
 
 const Stack = createNativeStackNavigator();
 
 function MainNavigator() {
     return (
-        <Stack.Navigator initialRouteName="Recuperar Senha">
+        <Stack.Navigator initialRouteName="Login">
             <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="CriarConta" component={CriarConta} />
-            <Stack.Screen name="Recuperar Senha" component={RecuperarSenha} />
+            <Stack.Screen name="Criar Conta" component={CriarConta} />
+            <Stack.Screen name="Redefinir Senha" component={RedefinirSenha} />
         </Stack.Navigator>
     );
 }
-
 
 export default MainNavigator;
