@@ -1,35 +1,50 @@
 import { useState } from "react";
 import { View } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";
-
+import * as Yup from "yup";
 
 function RecuperarSenha() {
+    const schema = Yup.object().shape({
+        email: Yup.string().required("E-mail é obrigatório.").email("E-mail inválido")
+    });
 
     const [email, setEmail] = useState("");
     const [erro, setErro] = useState("");
 
-    const validarEmail = () => {
-        if (!email) {
-            setErro("E-mail é obrigatório")
+    const validarEmail = async () => {
+        try {
+            await schema.validate({ email });
+            setErro("");
+            return true;
+        } catch (erro) {
+            setErro(erro.errors);
             return false;
         }
-        if (!email.includes("@")) {
-            setErro("E-mail inválido");
-            return false;
-        }
-
-        setErro("");
-        return true;
     }
 
 
-    const tratarDigitar = (text) => {
+    // const validarEmail = () => {
+    //     if (!email) {
+    //         setErro("E-mail é obrigatório")
+    //         return false;
+    //     }
+    //     if (!email.includes("@")) {
+    //         setErro("E-mail inválido");
+    //         return false;
+    //     }
+
+    //     setErro("");
+    //     return true;
+    // }
+
+
+    const tratarDigitar = async (text) => {
         setEmail(text);
-        validarEmail();
+        await validarEmail();
     }
 
-    const tratarEnvio = () => {
-        if (!validarEmail()) {
+    const tratarEnvio = async () => {
+        if (! await validarEmail()) {
             return;
         }
         setEmail("");

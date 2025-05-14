@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login";
 import CriarConta from "../screens/CriarConta";
 import RedefinirSenha from "../screens/RecuperarSenha";
+import RecuperarSenha from "../screens/RecuperarSenha";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +11,7 @@ function MainNavigator() {
         <Stack.Navigator initialRouteName="Login">
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Criar Conta" component={CriarConta} />
-            <Stack.Screen name="Redefinir Senha" component={RedefinirSenha} />
+            <Stack.Screen name="Recuperar Senha" component={RecuperarSenha} />
         </Stack.Navigator>
     );
 }
