@@ -1,10 +1,18 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { StoreProvider } from "./contexts/StoreContext";
+import { StoreProvider } from "./contexts/StoryContexts";
+import { NavigationContainer } from "@react-navigation/native";
+import MainNavigator from "./routes/MainNavigator";
+
+
 
 function App() {
   return (
     <SafeAreaProvider>
-      <StoreProvider></StoreProvider>
+      <StoreProvider>
+        <NavigationContainer>
+          <MainNavigator/>
+        </NavigationContainer>
+      </StoreProvider>
     </SafeAreaProvider>
   );
 }
