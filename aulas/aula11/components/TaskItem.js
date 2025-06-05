@@ -5,7 +5,9 @@ function TaskItem({ item }) {
         <List.Item
             title={item.descricao}
             description={item.concluida ? "Concluída" : "Pendente"}
-            left={() => <IconButton icon={item.concluida ? "check-circle" : "circle"} />}
+            left={() => (
+                <IconButton icon={item.concluida ? "check-circle" : "circle"} />
+            )}
             right={() => <IconButton icon="delete" onPress={() => { }} />}
         />
     );

@@ -9,18 +9,17 @@ function TaskScreen() {
     const [showModal, setShowModal] = useState(false);
     const { tarefas, listarTarefas } = useContext(TaskContext);
 
-
     useEffect(() => {
         const carregar = async () => {
             await listarTarefas();
-        }
+        };
         carregar();
     }, []);
 
     return (
         <View style={{ flex: 1 }}>
             <Appbar.Header>
-                <Appbar.Content title="Minhas tarefas" />
+                <Appbar.Content title="Minhas Tarefas" />
             </Appbar.Header>
             <View style={{ flex: 1, paddingBottom: 24 }}>
                 <FlatList
@@ -31,9 +30,7 @@ function TaskScreen() {
             </View>
             <FAB
                 icon="plus"
-                style={{
-                    position: "absolute", right: 16, bottom: 64
-                }}
+                style={{ position: "absolute", right: 16, bottom: 64 }}
                 onPress={() => setShowModal(true)}
             />
             <Modal visible={showModal}>

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useState } from "react";
 import * as TaskService from "../services/TaskService";
 
 const TaskContext = createContext();
@@ -16,9 +16,11 @@ function TaskProvider({ children }) {
         setTarefas([...tarefas, response]);
     }
 
-    return <TaskContext.Provider value={{ tarefas, listarTarefas, criarTarefa }}>
-        {children}
-    </TaskContext.Provider>;
+    return (
+        <TaskContext.Provider value={{ tarefas, listarTarefas, criarTarefa }}>
+            {children}
+        </TaskContext.Provider>
+    );
 }
 
 export { TaskContext, TaskProvider };
