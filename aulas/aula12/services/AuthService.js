@@ -8,10 +8,13 @@ async function signIn(credenciais) {
         const response = await axios.post(`${API_URL}:signInWithPassword?key=${API_KEY}`, { ...credenciais, returnSecureToken: true });
         return response.data;
     } catch (error) {
+        const { message } = error.response.data.error;
+        if (message === 'INVALID_LOGIN_CREDENTIALS') {
+            throw new Error('Email/Senha inválidos');
+        }
         throw error;
     }
 }
-
 
 async function signUp(credenciais) {
     try {
@@ -22,4 +25,4 @@ async function signUp(credenciais) {
     }
 }
 
-export { signIn, signUp };
+export { signIn, signUp }

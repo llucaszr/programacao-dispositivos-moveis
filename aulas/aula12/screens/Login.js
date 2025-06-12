@@ -1,4 +1,3 @@
-
 import { useContext } from "react";
 import { View } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";

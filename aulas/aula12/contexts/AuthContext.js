@@ -4,7 +4,7 @@ import * as AuthService from "../services/AuthService";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [usuario, setUsuario] = useState({ login: null, logado: false })
+    const [usuario, setUsuario] = useState({ login: null, logado: false });
     const [erro, setErro] = useState("");
 
     const login = async ({ email, senha }) => {
@@ -13,29 +13,29 @@ const AuthProvider = ({ children }) => {
             setUsuario({ login: email, logado: true });
             setErro("");
         } catch (error) {
-            setErro(`Deu ruim: ${error.message}`);
+            setErro(`Erro: ${error.message}`);
         }
-    }
+    };
 
     const logout = () => {
         setUsuario({ login: null, logado: false });
     };
 
-    const registrar = async (email, senha) => {
+    const registrar = async ({ email, senha }) => {
         try {
             await AuthService.signUp({ email, password: senha });
             setUsuario({ login: email, logado: true });
             setErro("");
         } catch (error) {
-            setErro(`Deu ruim: ${error.message}`);
+            setErro(`Erro: ${error.message}`);
         }
-    }
+    };
 
     return (
         <AuthContext.Provider value={{ usuario, erro, login, logout, registrar }}>
             {children}
         </AuthContext.Provider>
     );
-}
+};
 
 export { AuthContext, AuthProvider };
